@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CallCenterManager.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="EditableAgentesGrid">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="Gestionar Agentes" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.RichClient:Screen">
+        <ContentItem
+          Name="ScreenLayout"
+          Kind="Group">
+          <ContentItem
+            Name="grid"
+            Kind="Collection"
+            DataType="CollectionView$Agente">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="EditableAgentesGrid/Properties[Agentes]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem
+              Name="RowTemplate"
+              Kind="Details"
+              DataType="Agente">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="Cedula"
+                Kind="Value"
+                DataType=":String"
+                View="Microsoft.LightSwitch.RichClient:Label">
+                <ContentItem.Attributes>
+                  <ShowAsLinkSettings
+                    Value="AddEditAgente">
+                    <ShowAsLinkSettings.Attributes>
+                      <ScreenParameterMapping
+                        KeyProperty="Agente/Properties[Id]"
+                        ScreenParameter="AddEditAgente/Properties[AgenteId]" />
+                    </ShowAsLinkSettings.Attributes>
+                  </ShowAsLinkSettings>
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Agente/Properties[Cedula]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[ShowAsLink]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="True"
+                          ResultType=":Boolean" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="Nombre"
+                Kind="Value"
+                DataType=":String"
+                View="Microsoft.LightSwitch.RichClient:Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Agente/Properties[Nombre]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Apellido"
+                Kind="Value"
+                DataType=":String"
+                View="Microsoft.LightSwitch.RichClient:Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Agente/Properties[Apellido]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Horario"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Agente/Properties[Horario]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Extension"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Agente/Properties[Extension]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="ColaDeServicio"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Agente/Properties[ColaDeServicio]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="Agentes_CreateNew"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Nuevo" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="EditableAgentesGrid/Methods[CreateNew]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Agentes_Modificar"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Modificar" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="EditableAgentesGrid/Methods[Modificar]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Eliminar"
+                Kind="Command">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="EditableAgentesGrid/Methods[Eliminar]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Stretch"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Collapsed"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[ShowVirtualRow]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="False"
+                      ResultType=":Boolean" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+        </ContentItem>
+        <ContentItem.CommandItems>
+          <ContentItem
+            Name="Save"
+            Kind="Command">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression
+                    Target="EditableAgentesGrid/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem
+            Name="Refresh"
+            Kind="Command">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression
+                    Target="EditableAgentesGrid/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="CreateNew" />
+      <ScreenMethod
+        Name="Modificar" />
+      <ScreenMethod
+        Name="Eliminar" />
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="Agentes"
+        PageSize="45"
+        PropertyType="CollectionView$Agente">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="AgentesQuery"
+            ReturnType="Agente*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[Agentes]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="EditableAgentesGrid/Properties[Agentes]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="ShowEditableAgentesGrid">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="EditableAgentesGrid" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>

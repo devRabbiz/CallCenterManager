@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="EstadisticoDeLlamadasPorServicio">
+    <EntityType.Attributes>
+      <DisplayName
+        Value="Estadistico de Llamadas por Servicio" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="ID"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Servicio"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Value"
+        PropertyType=":Double">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Descripcion"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="FechaDesde"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="FechaHasta"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ReportData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="EstadisticoDeLlamadasPorServicios"
+      EntityType="EstadisticoDeLlamadasPorServicio" />
+    <QueryOperation
+      Name="EstadisticoDeLlamadasPorServicios_Single"
+      ReturnType="EstadisticoDeLlamadasPorServicio">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="EstadisticoDeLlamadasPorServicios" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ID"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="EstadisticoDeLlamadasPorServicios_SingleOrDefault"
+      ReturnType="EstadisticoDeLlamadasPorServicio">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="EstadisticoDeLlamadasPorServicios" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ID"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="ReportDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="EstadisticoDeLlamadasPorServicios">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet
+          EntitySetQuery="GetEstadisticoDeLlamadasPorServicio"
+          EntityTypeName="CallCenterManager.ReportService.EstadisticoDeLlamadasPorServicio" />
+        <WcfRiaProperty
+          Name="ID"
+          Property="EstadisticoDeLlamadasPorServicio/Properties[ID]" />
+        <WcfRiaProperty
+          Name="Servicio"
+          Property="EstadisticoDeLlamadasPorServicio/Properties[Servicio]" />
+        <WcfRiaProperty
+          Name="Value"
+          Property="EstadisticoDeLlamadasPorServicio/Properties[Value]" />
+        <WcfRiaProperty
+          Name="Descripcion"
+          Property="EstadisticoDeLlamadasPorServicio/Properties[Descripcion]" />
+        <WcfRiaProperty
+          Name="FechaDesde"
+          Property="EstadisticoDeLlamadasPorServicio/Properties[FechaDesde]" />
+        <WcfRiaProperty
+          Name="FechaHasta"
+          Property="EstadisticoDeLlamadasPorServicio/Properties[FechaHasta]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="Agente">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Cedula"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="9" />
+          <DisplayName
+            Value="Cédula" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Nombre"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Apellido"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="AgenteServicios"
+        Association="AgenteServicio_Agente"
+        FromEnd="Agente"
+        ToEnd="AgenteServicio" />
+      <EntityProperty
+        Name="Horario"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <Hidden />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ColaDeServicio"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <Hidden />
+          <DisplayName
+            Value="Cola de Servicio" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Extension"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <Hidden />
+          <DisplayName
+            Value="Extensión" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="FullName"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="Agentes"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="Agente" />
+    <QueryOperation
+      Name="Agentes_Single"
+      ReturnType="Agente">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Agentes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Agentes_SingleOrDefault"
+      ReturnType="Agente">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="Agentes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="AgenteServicio_Agentes"
+      Association="AgenteServicio_Agente">
+      <AssociationSetEnd
+        Name="AgenteServicio"
+        EntitySet="AgentesServicios" />
+      <AssociationSetEnd
+        Name="Agente"
+        EntitySet="Agentes" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association
+    Name="AgenteServicio_Agente">
+    <AssociationEnd
+      Name="AgenteServicio"
+      Multiplicity="Many"
+      EntityType="AgenteServicio" />
+    <AssociationEnd
+      Name="Agente"
+      Multiplicity="One"
+      EntityType="Agente">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="AgenteServicio_Agentes">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="AgenteServicio_Agentes" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AgenteServicio_Agentes]/Members[AgenteServicio]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AgenteServicio_Agente" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AgenteServicio_Agentes]/Members[Agente]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

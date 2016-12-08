@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CallCenterManager.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="EditableMotivosDeStatusGrid">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="Gestionar Motivos de Status" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.RichClient:Screen">
+        <ContentItem
+          Name="ScreenLayout"
+          Kind="Group">
+          <ContentItem
+            Name="grid"
+            Kind="Collection"
+            DataType="CollectionView$MotivoDeStatus">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Motivos de Status" />
+            </ContentItem.Attributes>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="EditableMotivosDeStatusGrid/Properties[MotivosDeStatus]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem
+              Name="RowTemplate"
+              Kind="Details"
+              DataType="MotivoDeStatus">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="Codigo"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="MotivoDeStatus/Properties[Codigo]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Descripcion"
+                Kind="Value"
+                DataType=":String">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="MotivoDeStatus/Properties[Descripcion]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="StatusDeExtesion"
+                Kind="Details"
+                DataType="StatusDeExtesion">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="MotivoDeStatus/Properties[StatusDeExtesion]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="RowTemplate1"
+                  Kind="Details"
+                  DataType="StatusDeExtesion">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression />
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.CommandItems>
+              <ContentItem
+                Name="MotivosDeStatus_AddAndEditNew"
+                Kind="Command">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EditableMotivosDeStatusGrid/Properties[MotivosDeStatus]" />
+                      <CallExpression
+                        Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="MotivosDeStatus_EditSelected"
+                Kind="Command">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EditableMotivosDeStatusGrid/Properties[MotivosDeStatus]" />
+                      <CallExpression
+                        Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="MotivosDeStatus_DeleteSelected"
+                Kind="Command">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EditableMotivosDeStatusGrid/Properties[MotivosDeStatus]" />
+                      <CallExpression
+                        Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Stretch"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Collapsed"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+        </ContentItem>
+        <ContentItem.CommandItems>
+          <ContentItem
+            Name="Save"
+            Kind="Command">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression
+                    Target="EditableMotivosDeStatusGrid/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem
+            Name="Refresh"
+            Kind="Command">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression
+                    Target="EditableMotivosDeStatusGrid/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="MotivosDeStatus"
+        PageSize="45"
+        PropertyType="CollectionView$MotivoDeStatus">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="MotivosDeStatusQuery"
+            ReturnType="MotivoDeStatus*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ApplicationData/Members[MotivosDeStatus]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="EditableMotivosDeStatusGrid/Properties[MotivosDeStatus]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="ShowEditableMotivosDeStatusGrid">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="EditableMotivosDeStatusGrid" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>

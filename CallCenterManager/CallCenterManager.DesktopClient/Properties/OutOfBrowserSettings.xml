@@ -1,0 +1,12 @@
+﻿<OutOfBrowserSettings ShortName="Call Voice Management System" EnableGPUAcceleration="False" ShowInstallMenuItem="False">
+  <OutOfBrowserSettings.Blurb>Call Voice Management System</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="Call Voice Management System" Top="0" Left="0" WindowStartupLocation="Manual" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.SecuritySettings>
+    <SecuritySettings ElevatedPermissions="Required" />
+  </OutOfBrowserSettings.SecuritySettings>
+  <OutOfBrowserSettings.Icons>
+    <Icon Size="32,32">Resources/online_support-32.png</Icon>
+  </OutOfBrowserSettings.Icons>
+</OutOfBrowserSettings>

@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="MotivoDeStatus">
+    <EntityType.Attributes>
+      <DisplayName
+        Value="Motivo de Status" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Codigo"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="10" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Descripcion"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="150" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="StatusDeExtesion"
+        Association="MotivoDeStatus_StatusDeExtesion"
+        FromEnd="MotivoDeStatus"
+        ToEnd="StatusDeExtesion">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Status" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="BitacoraStatusDeExtensions"
+        Association="BitacoraStatusDeExtension_MotivoDeStatus"
+        FromEnd="MotivoDeStatus"
+        ToEnd="BitacoraStatusDeExtension" />
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="MotivosDeStatus"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="MotivoDeStatus" />
+    <QueryOperation
+      Name="MotivosDeStatus_Single"
+      ReturnType="MotivoDeStatus">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MotivosDeStatus" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="MotivosDeStatus_SingleOrDefault"
+      ReturnType="MotivoDeStatus">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MotivosDeStatus" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="BitacoraStatusDeExtension_MotivoDeStatusSet"
+      Association="BitacoraStatusDeExtension_MotivoDeStatus">
+      <AssociationSetEnd
+        Name="BitacoraStatusDeExtension"
+        EntitySet="BitacoraStatusDeExtensions" />
+      <AssociationSetEnd
+        Name="MotivoDeStatus"
+        EntitySet="MotivosDeStatus" />
+    </AssociationSet>
+  </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="MotivosDeStatus">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="MotivoDeStatus_StatusDeExtesion"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="BitacoraStatusDeExtension_MotivoDeStatusSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="BitacoraStatusDeExtension_MotivoDeStatusSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[BitacoraStatusDeExtension_MotivoDeStatusSet]/Members[BitacoraStatusDeExtension]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="BitacoraStatusDeExtension_MotivoDeStatus" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[BitacoraStatusDeExtension_MotivoDeStatusSet]/Members[MotivoDeStatus]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="BitacoraStatusDeExtension_MotivoDeStatus">
+    <AssociationEnd
+      Name="BitacoraStatusDeExtension"
+      Multiplicity="Many"
+      EntityType="BitacoraStatusDeExtension" />
+    <AssociationEnd
+      Name="MotivoDeStatus"
+      Multiplicity="One"
+      EntityType="MotivoDeStatus">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>

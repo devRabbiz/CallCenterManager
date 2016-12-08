@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CallCenterManager.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="InformeStatusPorAgentes">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ReportData" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.RichClient:Screen">
+        <ContentItem
+          Name="ScreenLayout"
+          Kind="Group">
+          <ContentItem
+            Name="Group"
+            Kind="Group"
+            View="Microsoft.LightSwitch.RichClient:GroupBox">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Criterio de Búsqueda" />
+            </ContentItem.Attributes>
+            <ContentItem
+              Name="Group1"
+              Kind="Group"
+              View="Microsoft.LightSwitch.RichClient:ColumnsLayout">
+              <ContentItem
+                Name="Group2"
+                Kind="Group">
+                <ContentItem
+                  Name="Agente1"
+                  Kind="Details"
+                  DataType="Agente">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InformeStatusPorAgentes/Properties[Agente]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="Agente2"
+                    Kind="Details"
+                    DataType="Agente">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Left"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[MinWidth]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="200"
+                            ResultType=":Double" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Left"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Top"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="Group3"
+                Kind="Group">
+                <ContentItem
+                  Name="FechaDesde"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InformeStatusPorAgentes/Properties[FechaDesde]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="FechaHasta"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InformeStatusPorAgentes/Properties[FechaHasta]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Left"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Top"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Top"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+          <ContentItem
+            Name="StatusPorAgenteGroupeds"
+            Kind="Collection"
+            DataType="CollectionView$StatusPorAgenteGrouped"
+            View="Microsoft.LightSwitch.RichClient:CollectionCustomContentControl">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Status por Agente" />
+            </ContentItem.Attributes>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[StatusPorAgenteGroupeds]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem
+              Name="StatusPorAgenteGroupedsTemplate"
+              Kind="Details"
+              DataType="StatusPorAgenteGrouped">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="ID"
+                Kind="Value"
+                DataType=":Int32">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgenteGrouped/Properties[ID]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Agente3"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgenteGrouped/Properties[Agente]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Status1"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgenteGrouped/Properties[Status]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="TiempoAsInt"
+                Kind="Value"
+                DataType=":Int32">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgenteGrouped/Properties[TiempoAsInt]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootCustomContentControl/Properties[CustomControl]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="CallCenterManager.Charts.StatusPorAgenteChart, CallCenterManager.Charts"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="None"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Center"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Center"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+          <ContentItem
+            Name="grid"
+            Kind="Collection"
+            DataType="CollectionView$StatusPorAgente">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[StatusPorAgentes]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem
+              Name="RowTemplate"
+              Kind="Details"
+              DataType="StatusPorAgente">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="Agente"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgente/Properties[Agente]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="HoraInicio"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgente/Properties[HoraInicio]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Tiempo"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgente/Properties[Tiempo]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Status"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgente/Properties[Status]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Motivo"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="StatusPorAgente/Properties[Motivo]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[BrowseOnly]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="True"
+                        ResultType=":Boolean" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[ShowVirtualRow]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="False"
+                      ResultType=":Boolean" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Collapsed"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Stretch"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="StatusPorAgentes"
+        PageSize="45"
+        PropertyType="CollectionView$StatusPorAgente">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="StatusPorAgentesQuery"
+            ReturnType="StatusPorAgente*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="And">
+                  <BinaryExpression.Left>
+                    <BinaryExpression
+                      NodeType="And">
+                      <BinaryExpression.Left>
+                        <BinaryExpression
+                          NodeType="Equal">
+                          <BinaryExpression.Left>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="StatusPorAgente/Properties[Agente]" />
+                            </ChainExpression>
+                          </BinaryExpression.Left>
+                          <BinaryExpression.Right>
+                            <ParameterExpression
+                              Parameter="Agente" />
+                          </BinaryExpression.Right>
+                        </BinaryExpression>
+                      </BinaryExpression.Left>
+                      <BinaryExpression.Right>
+                        <BinaryExpression
+                          NodeType="GreaterThanOrEqual">
+                          <BinaryExpression.Left>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="StatusPorAgente/Properties[FechaDesde]" />
+                            </ChainExpression>
+                          </BinaryExpression.Left>
+                          <BinaryExpression.Right>
+                            <ParameterExpression
+                              Parameter="FechaDesde" />
+                          </BinaryExpression.Right>
+                        </BinaryExpression>
+                      </BinaryExpression.Right>
+                    </BinaryExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <BinaryExpression
+                      NodeType="LessThanOrEqual">
+                      <BinaryExpression.Left>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="StatusPorAgente/Properties[FechaHasta]" />
+                        </ChainExpression>
+                      </BinaryExpression.Left>
+                      <BinaryExpression.Right>
+                        <ParameterExpression
+                          Parameter="FechaHasta" />
+                      </BinaryExpression.Right>
+                    </BinaryExpression>
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ReportData/Members[StatusPorAgentes]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="Agente"
+                ParameterType=":String?" />
+              <QueryParameter
+                Name="FechaDesde"
+                ParameterType=":DateTime?" />
+              <QueryParameter
+                Name="FechaHasta"
+                ParameterType=":DateTime?" />
+            </ScreenQueryDefinition.Parameters>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="InformeStatusPorAgentes/Properties[StatusPorAgentes]/Query">
+              <ArgumentExpression
+                Parameter="Agente">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[Agente]" />
+                  <MemberExpression
+                    Member="FullName" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression
+                Parameter="FechaDesde">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[FechaDesde]" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression
+                Parameter="FechaHasta">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[FechaHasta]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="Agente"
+        PropertyType="Agente" />
+      <ScreenCollectionProperty
+        Name="StatusPorAgenteGroupeds"
+        PageSize="45"
+        PropertyType="CollectionView$StatusPorAgenteGrouped">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="StatusPorAgenteGroupedsQuery"
+            ReturnType="StatusPorAgenteGrouped*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="And">
+                  <BinaryExpression.Left>
+                    <BinaryExpression
+                      NodeType="And">
+                      <BinaryExpression.Left>
+                        <BinaryExpression
+                          NodeType="Equal">
+                          <BinaryExpression.Left>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="StatusPorAgenteGrouped/Properties[Agente]" />
+                            </ChainExpression>
+                          </BinaryExpression.Left>
+                          <BinaryExpression.Right>
+                            <ParameterExpression
+                              Parameter="Agente" />
+                          </BinaryExpression.Right>
+                        </BinaryExpression>
+                      </BinaryExpression.Left>
+                      <BinaryExpression.Right>
+                        <BinaryExpression
+                          NodeType="GreaterThanOrEqual">
+                          <BinaryExpression.Left>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="StatusPorAgenteGrouped/Properties[FechaDesde]" />
+                            </ChainExpression>
+                          </BinaryExpression.Left>
+                          <BinaryExpression.Right>
+                            <ParameterExpression
+                              Parameter="FechaDesde" />
+                          </BinaryExpression.Right>
+                        </BinaryExpression>
+                      </BinaryExpression.Right>
+                    </BinaryExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <BinaryExpression
+                      NodeType="LessThanOrEqual">
+                      <BinaryExpression.Left>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="StatusPorAgenteGrouped/Properties[FechaHasta]" />
+                        </ChainExpression>
+                      </BinaryExpression.Left>
+                      <BinaryExpression.Right>
+                        <ParameterExpression
+                          Parameter="FechaHasta" />
+                      </BinaryExpression.Right>
+                    </BinaryExpression>
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ReportData/Members[StatusPorAgenteGroupeds]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="Agente"
+                ParameterType=":String?" />
+              <QueryParameter
+                Name="FechaDesde"
+                ParameterType=":DateTime?" />
+              <QueryParameter
+                Name="FechaHasta"
+                ParameterType=":DateTime?" />
+            </ScreenQueryDefinition.Parameters>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="InformeStatusPorAgentes/Properties[StatusPorAgenteGroupeds]/Query">
+              <ArgumentExpression
+                Parameter="Agente">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[Agente]" />
+                  <MemberExpression
+                    Member="FullName" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression
+                Parameter="FechaDesde">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[FechaDesde]" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression
+                Parameter="FechaHasta">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeStatusPorAgentes/Properties[FechaHasta]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="FechaDesde"
+        PropertyType=":DateTime">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+      <ScreenProperty
+        Name="FechaHasta"
+        PropertyType=":DateTime">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="ShowInformeStatusPorAgentes">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="InformeStatusPorAgentes" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>

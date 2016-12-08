@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="ComparativoStatusDeAgente">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="ID"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Servicio"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Status"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Tiempo"
+        PropertyType=":Double">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Agente"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="FechaDesde"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="FechaHasta"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ReportData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="ComparativoStatusDeAgentes"
+      EntityType="ComparativoStatusDeAgente" />
+    <QueryOperation
+      Name="ComparativoStatusDeAgentes_Single"
+      ReturnType="ComparativoStatusDeAgente">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="ComparativoStatusDeAgentes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ID"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="ComparativoStatusDeAgentes_SingleOrDefault"
+      ReturnType="ComparativoStatusDeAgente">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="ComparativoStatusDeAgentes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ID"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="ReportDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="ComparativoStatusDeAgentes">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet
+          EntitySetQuery="GetComparativoStatusDeAgente"
+          EntityTypeName="CallCenterManager.ReportService.ComparativoStatusDeAgente" />
+        <WcfRiaProperty
+          Name="ID"
+          Property="ComparativoStatusDeAgente/Properties[ID]" />
+        <WcfRiaProperty
+          Name="Servicio"
+          Property="ComparativoStatusDeAgente/Properties[Servicio]" />
+        <WcfRiaProperty
+          Name="Status"
+          Property="ComparativoStatusDeAgente/Properties[Status]" />
+        <WcfRiaProperty
+          Name="Tiempo"
+          Property="ComparativoStatusDeAgente/Properties[Tiempo]" />
+        <WcfRiaProperty
+          Name="Agente"
+          Property="ComparativoStatusDeAgente/Properties[Agente]" />
+        <WcfRiaProperty
+          Name="FechaDesde"
+          Property="ComparativoStatusDeAgente/Properties[FechaDesde]" />
+        <WcfRiaProperty
+          Name="FechaHasta"
+          Property="ComparativoStatusDeAgente/Properties[FechaHasta]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>

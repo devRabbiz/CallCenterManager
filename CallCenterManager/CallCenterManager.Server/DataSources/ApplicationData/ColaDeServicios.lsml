@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="ColaDeServicio">
+    <EntityType.Attributes>
+      <DisplayName
+        Value="Cola de Servicio" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Nombre"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="AgenteServicios"
+        Association="AgenteServicio_ColaDeServicio"
+        FromEnd="ColaDeServicio"
+        ToEnd="AgenteServicio" />
+      <NavigationProperty
+        Name="Llamadas"
+        Association="Llamada_ColaDeServicio"
+        FromEnd="ColaDeServicio"
+        ToEnd="Llamada" />
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="ColaDeServicios"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="ColaDeServicio" />
+    <QueryOperation
+      Name="ColaDeServicios_Single"
+      ReturnType="ColaDeServicio">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="ColaDeServicios" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="ColaDeServicios_SingleOrDefault"
+      ReturnType="ColaDeServicio">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="ColaDeServicios" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="AgenteServicio_ColaDeServicios"
+      Association="AgenteServicio_ColaDeServicio">
+      <AssociationSetEnd
+        Name="AgenteServicio"
+        EntitySet="AgentesServicios" />
+      <AssociationSetEnd
+        Name="ColaDeServicio"
+        EntitySet="ColaDeServicios" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Llamada_ColaDeServicios"
+      Association="Llamada_ColaDeServicio">
+      <AssociationSetEnd
+        Name="Llamada"
+        EntitySet="Llamadas" />
+      <AssociationSetEnd
+        Name="ColaDeServicio"
+        EntitySet="ColaDeServicios" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association
+    Name="AgenteServicio_ColaDeServicio">
+    <AssociationEnd
+      Name="AgenteServicio"
+      Multiplicity="Many"
+      EntityType="AgenteServicio" />
+    <AssociationEnd
+      Name="ColaDeServicio"
+      Multiplicity="One"
+      EntityType="ColaDeServicio">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="AgenteServicio_ColaDeServicios">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="AgenteServicio_ColaDeServicios" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AgenteServicio_ColaDeServicios]/Members[AgenteServicio]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AgenteServicio_ColaDeServicio" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[AgenteServicio_ColaDeServicios]/Members[ColaDeServicio]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Llamada_ColaDeServicios">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Llamada_ColaDeServicios" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Llamada_ColaDeServicios]/Members[Llamada]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Llamada_ColaDeServicio" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Llamada_ColaDeServicios]/Members[ColaDeServicio]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="Llamada_ColaDeServicio">
+    <AssociationEnd
+      Name="Llamada"
+      Multiplicity="Many"
+      EntityType="Llamada" />
+    <AssociationEnd
+      Name="ColaDeServicio"
+      Multiplicity="One"
+      EntityType="ColaDeServicio">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>

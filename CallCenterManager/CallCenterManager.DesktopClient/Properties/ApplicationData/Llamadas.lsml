@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CallCenterManager.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Llamada" />
+    </EntityType.Attributes>
+    <EntityType.Properties>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Llamada/Properties[Duracion]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:Llamada/Properties[DeHoy]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+</Application>

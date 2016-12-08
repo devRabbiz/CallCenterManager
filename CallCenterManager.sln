@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{581633EB-B896-402F-8E60-36F3DA191C85}") = "CallCenterManager", "CallCenterManager\CallCenterManager.lsxproj", "{AA3E31D5-8C0C-47C7-AB46-86FEAC8DAE84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCenterManager.Server", "CallCenterManager\CallCenterManager.Server\CallCenterManager.Server.csproj", "{7B4689D0-08E2-45DE-9615-F597D1521574}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCenterManager.DesktopClient", "CallCenterManager\CallCenterManager.DesktopClient\CallCenterManager.DesktopClient.csproj", "{8D3C7E68-B1A4-4BB2-B4A6-388116772B55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCenterManager.ReportService", "CallCenterManager\CallCenterManager.ReportService\CallCenterManager.ReportService.csproj", "{90804B28-A240-400B-972A-4ACB674C57EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA3E31D5-8C0C-47C7-AB46-86FEAC8DAE84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3E31D5-8C0C-47C7-AB46-86FEAC8DAE84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3E31D5-8C0C-47C7-AB46-86FEAC8DAE84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3E31D5-8C0C-47C7-AB46-86FEAC8DAE84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B4689D0-08E2-45DE-9615-F597D1521574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B4689D0-08E2-45DE-9615-F597D1521574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B4689D0-08E2-45DE-9615-F597D1521574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B4689D0-08E2-45DE-9615-F597D1521574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3C7E68-B1A4-4BB2-B4A6-388116772B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3C7E68-B1A4-4BB2-B4A6-388116772B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3C7E68-B1A4-4BB2-B4A6-388116772B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3C7E68-B1A4-4BB2-B4A6-388116772B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90804B28-A240-400B-972A-4ACB674C57EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90804B28-A240-400B-972A-4ACB674C57EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90804B28-A240-400B-972A-4ACB674C57EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90804B28-A240-400B-972A-4ACB674C57EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://yanezricardo.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CallCenterManager\\CallCenterManager.DesktopClient\\CallCenterManager.DesktopClient.csproj
+		SccProjectName1 = CallCenterManager/CallCenterManager.DesktopClient
+		SccLocalPath1 = CallCenterManager\\CallCenterManager.DesktopClient
+		SccProjectUniqueName2 = CallCenterManager\\CallCenterManager.lsxproj
+		SccProjectName2 = CallCenterManager
+		SccLocalPath2 = CallCenterManager
+		SccProjectUniqueName3 = CallCenterManager\\CallCenterManager.ReportService\\CallCenterManager.ReportService.csproj
+		SccProjectName3 = CallCenterManager/CallCenterManager.ReportService
+		SccLocalPath3 = CallCenterManager\\CallCenterManager.ReportService
+		SccProjectUniqueName4 = CallCenterManager\\CallCenterManager.Server\\CallCenterManager.Server.csproj
+		SccProjectName4 = CallCenterManager/CallCenterManager.Server
+		SccLocalPath4 = CallCenterManager\\CallCenterManager.Server
+	EndGlobalSection
+EndGlobal

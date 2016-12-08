@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="LlamadaPorAgente">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="ID"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="IdAgente"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Agente"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Extension"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Numero"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Inicio"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Fin"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Status"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="Tiempo"
+        PropertyType=":String?" />
+      <EntityProperty
+        Name="TiempoAsInt"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="FechaDesde"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="FechaHasta"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ReportData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="LlamadaPorAgentes"
+      EntityType="LlamadaPorAgente" />
+    <QueryOperation
+      Name="LlamadaPorAgentes_Single"
+      ReturnType="LlamadaPorAgente">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LlamadaPorAgentes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ID"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LlamadaPorAgentes_SingleOrDefault"
+      ReturnType="LlamadaPorAgente">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="ID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="ID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LlamadaPorAgentes" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="ID"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'ID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="ReportDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="LlamadaPorAgentes">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet
+          EntitySetQuery="GetLlamadasPorAgente"
+          EntityTypeName="CallCenterManager.ReportService.LlamadaPorAgente" />
+        <WcfRiaProperty
+          Name="ID"
+          Property="LlamadaPorAgente/Properties[ID]" />
+        <WcfRiaProperty
+          Name="IdAgente"
+          Property="LlamadaPorAgente/Properties[IdAgente]" />
+        <WcfRiaProperty
+          Name="Agente"
+          Property="LlamadaPorAgente/Properties[Agente]" />
+        <WcfRiaProperty
+          Name="Extension"
+          Property="LlamadaPorAgente/Properties[Extension]" />
+        <WcfRiaProperty
+          Name="Numero"
+          Property="LlamadaPorAgente/Properties[Numero]" />
+        <WcfRiaProperty
+          Name="Inicio"
+          Property="LlamadaPorAgente/Properties[Inicio]" />
+        <WcfRiaProperty
+          Name="Fin"
+          Property="LlamadaPorAgente/Properties[Fin]" />
+        <WcfRiaProperty
+          Name="Status"
+          Property="LlamadaPorAgente/Properties[Status]" />
+        <WcfRiaProperty
+          Name="Tiempo"
+          Property="LlamadaPorAgente/Properties[Tiempo]" />
+        <WcfRiaProperty
+          Name="TiempoAsInt"
+          Property="LlamadaPorAgente/Properties[TiempoAsInt]" />
+        <WcfRiaProperty
+          Name="FechaDesde"
+          Property="LlamadaPorAgente/Properties[FechaDesde]" />
+        <WcfRiaProperty
+          Name="FechaHasta"
+          Property="LlamadaPorAgente/Properties[FechaHasta]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>

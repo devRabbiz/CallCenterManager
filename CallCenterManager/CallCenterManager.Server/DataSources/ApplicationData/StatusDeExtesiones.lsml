@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="StatusDeExtesion">
+    <EntityType.Attributes>
+      <DisplayName
+        Value="Status" />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Descripcion"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+          <DisplayName
+            Value="Descripción" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="MotivosDeStatus"
+        Association="MotivoDeStatus_StatusDeExtesion"
+        FromEnd="StatusDeExtesion"
+        ToEnd="MotivoDeStatus">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Motivos de Status" />
+          <Hidden />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="Extensiones"
+        Association="Extension_StatusDeExtesion"
+        FromEnd="StatusDeExtesion"
+        ToEnd="Extension" />
+      <NavigationProperty
+        Name="Bitacoras"
+        Association="BitacoraStatusDeExtension_StatusDeExtesion"
+        FromEnd="StatusDeExtesion"
+        ToEnd="BitacoraStatusDeExtension" />
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <UseForConcurrency />
+          <Generated />
+          <Hidden />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="StatusDeExtesiones"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="StatusDeExtesion" />
+    <QueryOperation
+      Name="StatusDeExtesiones_Single"
+      ReturnType="StatusDeExtesion">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="StatusDeExtesiones" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="StatusDeExtesiones_SingleOrDefault"
+      ReturnType="StatusDeExtesion">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="StatusDeExtesiones" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="MotivoDeStatus_StatusDeExtesions"
+      Association="MotivoDeStatus_StatusDeExtesion">
+      <AssociationSetEnd
+        Name="MotivoDeStatus"
+        EntitySet="MotivosDeStatus" />
+      <AssociationSetEnd
+        Name="StatusDeExtesion"
+        EntitySet="StatusDeExtesiones" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Extension_StatusDeExtesions"
+      Association="Extension_StatusDeExtesion">
+      <AssociationSetEnd
+        Name="Extension"
+        EntitySet="Extensiones" />
+      <AssociationSetEnd
+        Name="StatusDeExtesion"
+        EntitySet="StatusDeExtesiones" />
+    </AssociationSet>
+    <AssociationSet
+      Name="BitacoraStatusDeExtension_StatusDeExtesions"
+      Association="BitacoraStatusDeExtension_StatusDeExtesion">
+      <AssociationSetEnd
+        Name="BitacoraStatusDeExtension"
+        EntitySet="BitacoraStatusDeExtensions" />
+      <AssociationSetEnd
+        Name="StatusDeExtesion"
+        EntitySet="StatusDeExtesiones" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association
+    Name="MotivoDeStatus_StatusDeExtesion">
+    <AssociationEnd
+      Name="MotivoDeStatus"
+      Multiplicity="Many"
+      EntityType="MotivoDeStatus" />
+    <AssociationEnd
+      Name="StatusDeExtesion"
+      Multiplicity="One"
+      EntityType="StatusDeExtesion">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="MotivoDeStatus_StatusDeExtesions">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="MotivoDeStatus_StatusDeExtesions" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MotivoDeStatus_StatusDeExtesions]/Members[MotivoDeStatus]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="MotivoDeStatus_StatusDeExtesion" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[MotivoDeStatus_StatusDeExtesions]/Members[StatusDeExtesion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Extension_StatusDeExtesions">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Extension_StatusDeExtesions" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Extension_StatusDeExtesions]/Members[Extension]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Extension_StatusDeExtesion" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Extension_StatusDeExtesions]/Members[StatusDeExtesion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="BitacoraStatusDeExtension_StatusDeExtesions">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="BitacoraStatusDeExtension_StatusDeExtesions" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[BitacoraStatusDeExtension_StatusDeExtesions]/Members[BitacoraStatusDeExtension]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="BitacoraStatusDeExtension_StatusDeExtesion" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[BitacoraStatusDeExtension_StatusDeExtesions]/Members[StatusDeExtesion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="Extension_StatusDeExtesion">
+    <AssociationEnd
+      Name="Extension"
+      Multiplicity="Many"
+      EntityType="Extension" />
+    <AssociationEnd
+      Name="StatusDeExtesion"
+      Multiplicity="One"
+      EntityType="StatusDeExtesion">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <Association
+    Name="BitacoraStatusDeExtension_StatusDeExtesion">
+    <AssociationEnd
+      Name="BitacoraStatusDeExtension"
+      Multiplicity="Many"
+      EntityType="BitacoraStatusDeExtension" />
+    <AssociationEnd
+      Name="StatusDeExtesion"
+      Multiplicity="One"
+      EntityType="StatusDeExtesion">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+</ServiceApplication>

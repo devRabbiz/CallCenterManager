@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CallCenterManager.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <Screen
+    Name="InformeEstadisticoDeLlamadasPorAgentes">
+    <Screen.Attributes>
+      <SaveChangesTo
+        EntityContainer="ReportData" />
+      <DisplayName
+        Value="Informe Estadístico de Llamadas por Agentes" />
+    </Screen.Attributes>
+    <Screen.RootContentItem>
+      <ContentItem
+        Name="RootContentItem"
+        Kind="Screen"
+        View="Microsoft.LightSwitch.RichClient:Screen">
+        <ContentItem
+          Name="ScreenLayout"
+          Kind="Group">
+          <ContentItem
+            Name="Group"
+            Kind="Group"
+            View="Microsoft.LightSwitch.RichClient:GroupBox">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Criterio de Búsqueda" />
+            </ContentItem.Attributes>
+            <ContentItem
+              Name="Group1"
+              Kind="Group"
+              View="Microsoft.LightSwitch.RichClient:ColumnsLayout">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Criterio de Búsqueda" />
+              </ContentItem.Attributes>
+              <ContentItem
+                Name="Group2"
+                Kind="Group">
+                <ContentItem
+                  Name="Agente1"
+                  Kind="Details"
+                  DataType="Agente">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[Agente]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="Agente2"
+                    Kind="Details"
+                    DataType="Agente">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Left"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="Pixels"
+                            ResultType=":String" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource
+                      Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression
+                            Value="200"
+                            ResultType=":Double" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Left"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Top"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="Group3"
+                Kind="Group">
+                <ContentItem
+                  Name="FechaDesde"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[FechaDesde]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="FechaHasta"
+                  Kind="Value"
+                  DataType=":DateTime">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[FechaHasta]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Left"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Top"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Top"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+          <ContentItem
+            Name="EstadisticoDeLlamadasPorAgentes"
+            Kind="Collection"
+            DataType="CollectionView$EstadisticoDeLlamadasPorAgente"
+            View="Microsoft.LightSwitch.RichClient:CollectionCustomContentControl">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[EstadisticoDeLlamadasPorAgentes]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem
+              Name="EstadisticoDeLlamadasPorAgentesTemplate"
+              Kind="Details"
+              DataType="EstadisticoDeLlamadasPorAgente">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="Value1"
+                Kind="Value"
+                DataType=":Double">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EstadisticoDeLlamadasPorAgente/Properties[Value]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Descripcion1"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EstadisticoDeLlamadasPorAgente/Properties[Descripcion]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootCustomContentControl/Properties[CustomControl]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="CallCenterManager.Charts.EstadisticoDellamadasPorAgenteChart, CallCenterManager.Charts"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="None"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HorizontalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Stretch"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Center"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HeightSizingMode]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Pixels"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[Height]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="300"
+                      ResultType=":Double" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[MaxWidth]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="500"
+                      ResultType=":Double" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+          <ContentItem
+            Name="grid"
+            Kind="Collection"
+            DataType="CollectionView$EstadisticoDeLlamadasPorAgente">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[EstadisticoDeLlamadasPorAgentes]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem
+              Name="RowTemplate"
+              Kind="Details"
+              DataType="EstadisticoDeLlamadasPorAgente">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="Descripcion"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Descripción" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EstadisticoDeLlamadasPorAgente/Properties[Descripcion]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
+                Name="Value"
+                Kind="Value"
+                DataType=":Double">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Valor" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="EstadisticoDeLlamadasPorAgente/Properties[Value]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[BrowseOnly]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression
+                        Value="True"
+                        ResultType=":Boolean" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+            <ContentItem.PropertySources>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:DataGrid/Properties[ShowVirtualRow]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="False"
+                      ResultType=":Boolean" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Collapsed"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource
+                Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression
+                      Value="Stretch"
+                      ResultType=":String" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+    <Screen.Methods>
+      <ScreenMethod
+        Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+          <ImageResource
+            ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod
+        Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault
+            Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty
+        Name="EstadisticoDeLlamadasPorAgentes"
+        PageSize="45"
+        PropertyType="CollectionView$EstadisticoDeLlamadasPorAgente">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="EstadisticoDeLlamadasPorAgentesQuery"
+            ReturnType="EstadisticoDeLlamadasPorAgente*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree>
+                <BinaryExpression
+                  NodeType="And">
+                  <BinaryExpression.Left>
+                    <BinaryExpression
+                      NodeType="And">
+                      <BinaryExpression.Left>
+                        <BinaryExpression
+                          NodeType="Equal">
+                          <BinaryExpression.Left>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="EstadisticoDeLlamadasPorAgente/Properties[Agente]" />
+                            </ChainExpression>
+                          </BinaryExpression.Left>
+                          <BinaryExpression.Right>
+                            <ParameterExpression
+                              Parameter="Agente" />
+                          </BinaryExpression.Right>
+                        </BinaryExpression>
+                      </BinaryExpression.Left>
+                      <BinaryExpression.Right>
+                        <BinaryExpression
+                          NodeType="GreaterThanOrEqual">
+                          <BinaryExpression.Left>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="EstadisticoDeLlamadasPorAgente/Properties[FechaDesde]" />
+                            </ChainExpression>
+                          </BinaryExpression.Left>
+                          <BinaryExpression.Right>
+                            <ParameterExpression
+                              Parameter="FechaDesde" />
+                          </BinaryExpression.Right>
+                        </BinaryExpression>
+                      </BinaryExpression.Right>
+                    </BinaryExpression>
+                  </BinaryExpression.Left>
+                  <BinaryExpression.Right>
+                    <BinaryExpression
+                      NodeType="LessThanOrEqual">
+                      <BinaryExpression.Left>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="EstadisticoDeLlamadasPorAgente/Properties[FechaHasta]" />
+                        </ChainExpression>
+                      </BinaryExpression.Left>
+                      <BinaryExpression.Right>
+                        <ParameterExpression
+                          Parameter="FechaHasta" />
+                      </BinaryExpression.Right>
+                    </BinaryExpression>
+                  </BinaryExpression.Right>
+                </BinaryExpression>
+              </QueryFilterExpressionTree>
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="ReportData/Members[EstadisticoDeLlamadasPorAgentes]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+            <ScreenQueryDefinition.Parameters>
+              <QueryParameter
+                Name="Agente"
+                ParameterType=":String?" />
+              <QueryParameter
+                Name="FechaDesde"
+                ParameterType=":DateTime?" />
+              <QueryParameter
+                Name="FechaHasta"
+                ParameterType=":DateTime?" />
+            </ScreenQueryDefinition.Parameters>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="InformeEstadisticoDeLlamadasPorAgentes/Properties[EstadisticoDeLlamadasPorAgentes]/Query">
+              <ArgumentExpression
+                Parameter="Agente">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[Agente]" />
+                  <MemberExpression
+                    Member="FullName" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression
+                Parameter="FechaDesde">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[FechaDesde]" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression
+                Parameter="FechaHasta">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="InformeEstadisticoDeLlamadasPorAgentes/Properties[FechaHasta]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="Agente"
+        PropertyType="Agente" />
+      <ScreenProperty
+        Name="FechaDesde"
+        PropertyType=":DateTime">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+      <ScreenProperty
+        Name="FechaHasta"
+        PropertyType=":DateTime">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+  </Screen>
+  <Application.Methods>
+    <ApplicationMethod
+      Name="ShowInformeEstadisticoDeLlamadasPorAgentes">
+      <ApplicationMethod.Attributes>
+        <ShowScreenMethod
+          TargetScreen="InformeEstadisticoDeLlamadasPorAgentes" />
+      </ApplicationMethod.Attributes>
+    </ApplicationMethod>
+  </Application.Methods>
+</Application>

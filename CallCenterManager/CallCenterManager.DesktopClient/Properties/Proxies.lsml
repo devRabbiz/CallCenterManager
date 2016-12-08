@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CallCenterManager.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityContainer>
+    <EntityContainer.Attributes>
+      <Proxy
+        Target="ServiceInterface:ApplicationData" />
+    </EntityContainer.Attributes>
+  </EntityContainer>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:ColaDeServicio" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:Extension" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:AgenteServicio" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AgenteServicio_ColaDeServicio" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AgenteServicio_Agente" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AgenteServicio_Horario" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:AgenteServicio_Extension" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:MotivoDeStatus" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:MotivoDeStatus_StatusDeExtesion" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Extension_StatusDeExtesion" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:BitacoraStatusDeExtension" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:BitacoraStatusDeExtension_Extension" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:BitacoraStatusDeExtension_StatusDeExtesion" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:BitacoraStatusDeExtension_MotivoDeStatus" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:StatusPorAgente" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityContainer>
+    <EntityContainer.Attributes>
+      <Proxy
+        Target="ServiceInterface:ReportData" />
+    </EntityContainer.Attributes>
+  </EntityContainer>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:StatusPorAgenteGrouped" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Llamada_Extension" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Llamada_ColaDeServicio" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:LlamadaPorAgente" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:LlamadaPorAgenteGrouped" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:EstadisticoDeLlamadasPorAgente" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:EstadisticoDeLlamadasPorServicio" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:ComparativoStatusDeAgente" />
+    </EntityType.Attributes>
+  </EntityType>
+</Application>
